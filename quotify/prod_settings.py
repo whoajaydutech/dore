@@ -10,4 +10,4 @@ DEBUG = False
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', SECRET_KEY)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['dore.onrender.com']
