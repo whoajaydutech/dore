@@ -1,0 +1,10 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+    <form method="post">
+        <!--        Django protects against Cross Site Request Forgeries. Should use the token below for all POST forms.-->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

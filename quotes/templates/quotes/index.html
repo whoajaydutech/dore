@@ -1,0 +1,57 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+    {% if quote_list %}
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--    <script type='text/javascript'>-->
+<!--        var quotes = {{ quote_list|safe }};-->
+<!--    </script>-->
+
+<!--    <div id="app">-->
+<!--        [[message]]-->
+
+<!--        <ul>-->
+<!--            <li v-for="quote in quotes">-->
+<!--                [[ quote.quote_text ]]-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Publication Date</th>
+                <th scope="col"><i class="fas fa-heart"></i></th>
+                <th scope="col">Quote</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quote in quote_list %}
+            <tr>
+                <td>{{ quote.pub_date }}</td>
+                <td>{{ quote.likes }}</td>
+                <td><a href="{% url 'quotes:detail' quote.id %}">{{ quote.quote_text }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<!--    <script>-->
+<!--        var app = new Vue({-->
+<!--          delimiters: ['[[', ']]'],-->
+<!--          el: '#app',-->
+<!--          data: {-->
+<!--              message: 'Hello Vue!',-->
+<!--              people: people,-->
+<!--          },-->
+<!--          methods: {-->
+<!--              greet: function(name) {-->
+<!--                  console.log('Hello from ' + name + '!')-->
+<!--              }-->
+<!--          }-->
+<!--        });-->
+<!--      </script>-->
+    {% else %}
+        <p>No quotes available.</p>
+    {% endif %}
+{% endblock %}
